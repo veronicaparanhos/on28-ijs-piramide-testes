@@ -24,10 +24,13 @@ no arquivo package.json alterar a linha 7 para
 
 ### Resumo
 O que veremos na aula de hoje?
-- [Tema da Aula](#tema-da-aula)
-    - [Instruções](#instruções)
-    - [Objetivo](#objetivo)
-    - [Resumo](#resumo)
+- [Testes de integração](##testes-de-integração)
+    - [Conceito](#conceito)
+    - [Motivação](#motivação)
+    - [Benefícios](#benefícios)
+    - [Desafios](#desafios)
+    - [Abordagens](#abordagens)
+      - [Abordagens](#abordagens)
 
 - [Conteúdo](#conteúdo)
 
@@ -43,6 +46,7 @@ O que veremos na aula de hoje?
   - [Exercícios](#exercícios)
   - [Material da aula](#material-da-aula)
   - [Links Úteis](#links-úteis)
+  
 
 ## Testes de integração
 
@@ -81,7 +85,7 @@ Ocasionalmente, os testes de integração precisam usar esses serviços e compon
 
 [A Node.js Guide to Actually Doing Integration Tests | Toptal®](https://www.toptal.com/nodejs/nodejs-guide-integration-tests)
 
-## Abordagens
+### Abordagens
 
 - Big Bang
 - Incremental
@@ -89,7 +93,7 @@ Ocasionalmente, os testes de integração precisam usar esses serviços e compon
     - Bottom Up
     - Sandwich
 
-**Teste do Big Bang**
+#### Teste do Big Bang
 
 O Teste do Big Bang é uma abordagem de teste de integração na qual todos os componentes ou módulos são integrados de uma só vez e testados como uma unidade. Esse conjunto combinado de componentes é considerado uma entidade durante o teste. Se todos os componentes na unidade não estiverem concluídos, o processo de integração não será executado.
 
@@ -105,7 +109,7 @@ O Teste do Big Bang é uma abordagem de teste de integração na qual todos os c
 - Como todos os módulos são testados de uma vez, os módulos críticos de alto risco não são isolados e testados com prioridade. Módulos periféricos que lidam com interfaces de usuário também não são isolados e testados com prioridade.
 - 
 
-**Teste Incremental**
+#### Teste Incremental
 
 Na abordagem de Teste Incremental, os testes são realizados integrando dois ou mais módulos que são logicamente relacionados entre si e, em seguida, testados para garantir o funcionamento adequado da aplicação. Posteriormente, outros módulos relacionados são integrados incrementalmente, e o processo continua até que todos os módulos logicamente relacionados sejam integrados e testados com sucesso.
 
@@ -114,169 +118,40 @@ A abordagem Incremental é realizada por dois Métodos diferentes:
 - De Baixo para Cima (Bottom Up)
 - De Cima para Baixo (Top Down)
 
-**Teste de Integração de Baixo para Cima**
+##### Teste de Integração de Baixo para Cima
 
 O Teste de Integração de Baixo para Cima é uma estratégia na qual os módulos de nível inferior são testados primeiro. Esses módulos testados são então usados para facilitar o teste de módulos de nível superior. O processo continua até que todos os módulos no nível superior sejam testados. Uma vez que os módulos de nível inferior são testados e integrados, então o próximo nível de módulos é formado.
 
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8de75e3a-c4d5-4c2c-b4b5-2a659fa1e379/53c6beba-8b88-4437-94ad-f59777cbdce9/Untitled.png)
 
-Vantagens:
+**Vantagens:**
 
 - Abordagem incremental, localização de fontes de falhas facilitada;
 - Não há perda de tempo esperando que todos os módulos sejam desenvolvidos;
 - Fácil de criar condições de teste
 
-Desvantagens:
+**Desvantagens:**
 
 - **Drivers** requerem conhecimento de programação e tempo para desenvolvimento;
 - Módulos críticos (no nível superior da arquitetura de software) que controlam o fluxo de aplicativos são testados por último e podem estar propensos a defeitos;
 - Um protótipo inicial não é possível.
 
-**Teste de cima para baixo (Top-Down)**:
+##### Teste de cima para baixo (Top-Down):
 
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8de75e3a-c4d5-4c2c-b4b5-2a659fa1e379/59e589c4-a9d1-4820-a5ef-72719cb2200e/Untitled.png)
 
 Nessa abordagem, os módulos individuais são combinados a partir do nível superior da hierarquia, o teste começa combinando os módulos em níveis superiores, movendo-se para baixo, para os módulos de nível inferior. Às vezes, os módulos de nível inferior não estão disponíveis, para conseguir realizar o teste são criados *stubs*, um trecho de código ou programa que aceita as entradas do módulo superior e retorna os resultados esperados. A grande vantagem é poder testar logo no início as funções principais do software.
 
-Vantagens:
+**Vantagens:**
 
 - Abordagem incremental, localização de fontes de falhas facilitada;
 - Possibilidade de testar protótipos iniciais;
 - Módulos críticos são priorizados, e por isso falhas de design podem ser encontradas e resolvidas.
 
-Desvantagens:
+**Desvantagens:**
 
 - **Stubs** requerem conhecimento de programação e tempo para desenvolvimento;
 - Módulos em um nível inferior são testados inadequadamente.
-
-Em alguns casos, há a necessidade de simular alguma dependência em nosso código, testar a lógica em torno das funções usando **spies** ou **stubs** em determinados lugares. É aqui que alguns desses pacotes utilitários se tornam úteis.
-
-[O SinonJS](http://sinonjs.org/) é uma ótima biblioteca que suporta **spies**, **stubs** e **mocks** para testes. Ela também oferece outros recursos úteis para testes, como manipulação de tempo, área de testes isolada, ampliação de assertivas, além de servidores e requisições falsas.
-
-Em alguns casos, há a necessidade de simular alguma dependência em nosso código. As referências aos serviços que gostaríamos de simular são utilizadas por outras partes do sistema.
-
-```jsx
-const request = require("supertest");
-    const app = require("../../app");
-    const TaskModel = require("../../models/tasks");
-
-    describe("Task Controller", () => {
-      describe("create task", () => {
-        it("should return 201 and the task created", async () => {
-          const response = await request(app)
-            .post("/api/v1/tasks")
-            .set("content-type", "application/json")
-            .send({
-              name: "task testing",
-              completed: "true",
-            });
-
-          expect(response.status).toBe(201);
-          expect(response.body).toHaveProperty("tasks");
-        });
-      });
-
-      describe("get all tasks", () => {
-        it("should return 200 and all tasks", async () => {
-          const response = await request(app)
-            .get("/api/v1/tasks")
-            .set("content-type", "application/json");
-
-          expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty("tasks");
-        });
-      });
-
-      describe("get a task", () => {
-        let task;
-        beforeEach(async () => {
-          task = await TaskModel.create({
-            name: "task testid",
-          });
-        });
-
-        it("should return 200 and a single task", async () => {
-          const response = await request(app)
-            .get(`/api/v1/tasks/${task.id}`)
-            .set("content-type", "application/json");
-
-          expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty("task");
-        });
-      });
-
-      describe("update a task", () => {
-        let task;
-        beforeEach(async () => {
-          task = await TaskModel.create({
-            name: "task2 testid",
-          });
-        });
-
-        it("should return 404 if the task with the id doesnt exist", async () => {
-          const taskId = "639c80ef98284bfdf111ad09";
-          const response = await request(app).patch(`/api/v1/tasks/${taskId}`);
-
-          expect(response.status).toBe(404);
-          expect(response.body.msg).toEqual("this task does not exist");
-        });
-
-        it("should return 200 and the updated task", async () => {
-          const response = await request(app)
-            .patch(`/api/v1/tasks/${task.id}`)
-            .send({ name: "newtask" });
-
-          expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty("task");
-        });
-      });
-
-      describe("delete a task", () => {
-        let task;
-        beforeEach(async () => {
-          task = await TaskModel.create({
-            name: "task2 testid",
-          });
-        });
-
-        it("should return 404 if the task with the id doesnt exist", async () => {
-          const taskId = "639c80ef98284bfdf111ad09";
-          const response = await request(app).delete(`/api/v1/tasks/${taskId}`);
-
-          expect(response.status).toBe(404);
-
-          expect(response.body.msg).toEqual("this task does not exist");
-        });
-
-        it("should return 200 and the deleted task", async () => {
-          const response = await request(app).delete(`/api/v1/tasks/${task.id}`);
-
-          expect(response.status).toBe(200);
-          expect(response.body).toHaveProperty("task");
-        });
-      });
-    });
-```
-
-**Para que devemos usar Mocks?**
-
-1. Para testar se um ou mais métodos de uma dependência externa foi chamado corretamente;
-2. Testar quantas vezes esses métodos foram chamados;
-3. Testar se esses métodos foram chamados com os parâmetros corretos.
-
-**Para que não devemos usar Mocks?**
-
-1. Para testar valores retornados por uma função;
-2. Para testar comportamentos de uma função.
-
-**Para que devemos usar Stubs?**
-
-1. Para testar retornos de uma dependência externa;
-2. Testar o comportamento do nosso *SUT* frente aos diferentes retornos da API*.* Por exemplo, retornos de sucesso, falhas ou exceções.
-
-*“Não é aconselhável utilizar Mocks ou Stubs para testes de integração, já que estes devem ser o mais próximo possível do ambiente de produção.”*
-
-[](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
 
 ### Implementação
 
@@ -313,19 +188,19 @@ Ele inclui os seguintes atributos:
 
 https://github.com/public-apis/public-apis
 
-# E2E
+## E2E
 
-## **Conceito**
+### Conceito
 
 **Testes de Aplicativo e Navegador**
 
- Uma técnica de teste de software que verifica o fluxo de trabalho de uma aplicação desde o início até o fim em [cenários de usuário reais](https://www.browserstack.com/real-user-conditions-testing-on-browserstack). Os testes de ponta a ponta são um tipo de teste que verifica toda a aplicação de software do início ao fim, incluindo todos os sistemas, componentes e integrações envolvidos no fluxo de trabalho da aplicação. 
+Uma técnica de teste de software que verifica o fluxo de trabalho de uma aplicação desde o início até o fim em [cenários de usuário reais](https://www.browserstack.com/real-user-conditions-testing-on-browserstack). Os testes de ponta a ponta são um tipo de teste que verifica toda a aplicação de software do início ao fim, incluindo todos os sistemas, componentes e integrações envolvidos no fluxo de trabalho da aplicação. 
 
-## Motivação
+### Motivação
 
 Ele tem como objetivo garantir que a aplicação funcione corretamente e atenda aos requisitos do usuário. Os testes de ponta a ponta podem envolver vários tipos de teste, como teste de interface gráfica, teste de integração, teste de banco de dados, [teste de desempenho](https://www.browserstack.com/guide/performance-testing), teste de segurança e [teste de usabilidade](https://www.browserstack.com/guide/what-is-usability-testing). Ferramentas de teste automatizado como Selenium, Cypress e Appium são comumente usadas para testes de ponta a ponta para melhorar a eficiência e a precisão.
 
-## Beneficios
+### Beneficios
 
 - **Melhoria na garantia de qualidade:** Os testes de ponta a ponta podem ajudar a garantir que todas as partes de uma aplicação de software estejam funcionando corretamente e que a aplicação esteja atendendo aos requisitos de negócios pretendidos.
 - **Aumento da confiança no software:** Os testes de ponta a ponta podem aumentar a confiança de que o software funcionará conforme esperado em cenários do mundo real, proporcionando segurança aos interessados de que a aplicação é confiável e estável.
@@ -334,14 +209,14 @@ Ele tem como objetivo garantir que a aplicação funcione corretamente e atenda 
 - **Melhor alinhamento com requisitos de negócios:** Os testes de ponta a ponta podem ajudar a garantir que a aplicação atenda aos requisitos de negócios, tornando mais provável que a aplicação seja aceita pelos usuários pretendidos.
 - **Processo de teste mais eficiente:** Os testes de ponta a ponta podem ajudar a otimizar o processo de teste, testando a aplicação do ponto de vista do usuário, em vez de testar componentes individuais isoladamente, facilitando a identificação e solução de problemas que possam surgir.
 
-outras vantagens:
+**outras vantagens:**
 
 - Testes da perspectiva de um usuário: testes de ponta a ponta examinam o aplicativo da perspectiva de um usuário final. Isso pode descobrir defeitos que não são aparentes no teste de unidade;
 - Verifica fluxos de trabalho: testes E2E podem validar a lógica de negócios de uma aplicação;
 - Expande a cobertura de teste: os testes E2E podem verificar se todas as dependências de um aplicativo funcionam corretamente em conjunto, incluindo código de terceiros;
 - Reduz o número de erros encontrados na produção: adicionar testes E2E a um conjunto de testes pode ajudar a reduzir a chance de encontrar defeitos após a implantação na produção.
 
-Desvantagens:
+### Desvantagens:
 
 - Execução lenta: testes que verificam fluxos de trabalho por meio da interface do usuário podem levar muito tempo para serem executados;
 - Testes frágeis: os testes E2E podem exigir manutenção e resolução de problemas significativos;
@@ -373,9 +248,9 @@ Digamos que os testadores precisem verificar o funcionamento de uma conta do Gma
 7. Abrir a pasta de Spam. Verificar os e-mails lá.
 8. Sair do Gmail clicando em 'sair'.
 
-# **Três Tipos de Atividades em Testes de Ponta a Ponta**
+### Três Tipos de Atividades em Testes de Ponta a Ponta
 
-**1. Funções do Usuário**
+#### 1. Funções do Usuário
 
 Para construir funções do usuário, faça o seguinte:
 
@@ -384,11 +259,11 @@ Para construir funções do usuário, faça o seguinte:
 - Identificar todas as relações entre funções do usuário.
 - Estabelecer se cada função do usuário é independente ou reutilizável.
 
-**2. Condições**
+#### 2. Condições
 
 Para construir condições com base nas funções do usuário, defina um conjunto de condições para cada função do usuário. Isso poderia incluir tempo, condições de dados, etc., fatores que afetam as funções do usuário.
 
-**3. Casos de Teste**
+#### 3. Casos de Teste
 
 Para construir casos de teste para Testes de Ponta a Ponta, leve em consideração o seguinte:
 
@@ -422,7 +297,7 @@ automatizado vs não automatizado
 * [Exercicio para casa](/exercicios/para-casa/)
 
 ### Material da aula 
-* [Material](/material)
+<!-- * [Material](/material) -->
 
 ### Links Úteis
 *  https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf

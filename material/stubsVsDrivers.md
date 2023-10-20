@@ -124,3 +124,30 @@ Neste exemplo:
 - Nos testes, verificamos se a função `calculateTotal` produz o resultado correto com base nos preços simulados e se chama corretamente o driver `getPricesFromDatabase`.
 
 Este é um exemplo básico de como usar um driver para testar um componente que depende de um componente ainda não implementado. Note que esta é uma abordagem temporária e não deve substituir testes completos assim que o componente real estiver disponível.
+
+
+Em alguns casos, há a necessidade de simular alguma dependência em nosso código, testar a lógica em torno das funções usando **spies** ou **stubs** em determinados lugares. É aqui que alguns desses pacotes utilitários se tornam úteis.
+
+[O SinonJS](http://sinonjs.org/) é uma ótima biblioteca que suporta **spies**, **stubs** e **mocks** para testes. Ela também oferece outros recursos úteis para testes, como manipulação de tempo, área de testes isolada, ampliação de assertivas, além de servidores e requisições falsas.
+
+Em alguns casos, há a necessidade de simular alguma dependência em nosso código. As referências aos serviços que gostaríamos de simular são utilizadas por outras partes do sistema.
+
+**Para que devemos usar Mocks?**
+
+1. Para testar se um ou mais métodos de uma dependência externa foi chamado corretamente;
+2. Testar quantas vezes esses métodos foram chamados;
+3. Testar se esses métodos foram chamados com os parâmetros corretos.
+
+**Para que não devemos usar Mocks?**
+
+1. Para testar valores retornados por uma função;
+2. Para testar comportamentos de uma função.
+
+**Para que devemos usar Stubs?**
+
+1. Para testar retornos de uma dependência externa;
+2. Testar o comportamento do nosso *SUT* frente aos diferentes retornos da API*.* Por exemplo, retornos de sucesso, falhas ou exceções.
+
+*“Não é aconselhável utilizar Mocks ou Stubs para testes de integração, já que estes devem ser o mais próximo possível do ambiente de produção.”*
+
+[Test Doubles (Mocks, Stubs, Fakes, Spies e Dummies)](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
