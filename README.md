@@ -24,22 +24,30 @@ no arquivo package.json alterar a linha 7 para
 
 ### Resumo
 O que veremos na aula de hoje?
-- [Testes de integração](##testes-de-integração)
-    - [Conceito](#conceito)
-    - [Motivação](#motivação)
-    - [Benefícios](#benefícios)
-    - [Desafios](#desafios)
-    - [Abordagens](#abordagens)
-      - [Teste do Big Bang](#teste-do-big-bang)
-      - [Teste Incremental](#teste-incremental)
-        - [Teste de baixo para cima](#teste-de-integração-de-baixo-para-cima)
-        - [Teste de cima para baixo](#teste-de-cima-para-baixo-top-down)
+- [Testes de integração](#testes-de-integração)
+  - [Conceito](#conceito)
+  - [Motivação](#motivação)
+  - [Benefícios](#benefícios)
+  - [Desafios](#desafios)
+  - [Abordagens](#abordagens)
+    - [Teste do Big Bang](#teste-do-big-bang)
+    - [Teste Incremental](#teste-incremental)
+      - [Teste de baixo para cima](#teste-de-integração-de-baixo-para-cima)
+      - [Teste de cima para baixo](#teste-de-cima-para-baixo-top-down)
+  - [Como Fazer Testes de Integração?](#como-fazer-testes-de-integração)
+  - [Melhores práticas](##melhores-práticas)
+- [Testes end-to-end](#e2e)
+  - [Conceito](#conceito-1)
+  - [Motivação](#motivação-1)
+  - [Benefícios](#benefícios-1)
+  - [Desvantagens](#desvantagens)
+  - [Passos para Realizar Testes de Ponta a Ponta](#passos-para-realizar-testes-de-ponta-a-ponta)
+  - [Exemplo de Teste de Ponta a Ponta](#exemplo-de-teste-de-ponta-a-ponta)
+  - [Três Tipos de Atividades em Testes de Ponta a Ponta](#três-tipos-de-atividades-em-testes-de-ponta-a-ponta)
 
-- [Conteúdo](#conteúdo)
-
-  - [Exercícios](#exercícios)
-  - [Material da aula](#material-da-aula)
-  - [Links Úteis](#links-úteis)
+- [Exercícios](#exercícios)
+- [Material da aula](#material-da-aula)
+- [Links Úteis](#links-úteis)
   
 
 ## Testes de integração
@@ -157,19 +165,7 @@ O procedimento de teste de integração, independentemente das estratégias de t
 4. Rastrear e retestar os defeitos.
 5. Os passos 3 e 4 são repetidos até a conclusão bem-sucedida da integração.
 
-#### Breve Descrição dos Planos de Teste de Integração
-
-Ele inclui os seguintes atributos:
-
-- Métodos/Abordagens de teste (como discutido anteriormente).
-- Itens dentro e fora do escopo dos Testes de Integração.
-- Funções e Responsabilidades.
-- Pré-requisitos para os testes de integração.
-- Ambiente de teste.
-- Planos de Risco e Mitigação.
-
 [Integration Testing: What is, Types with Example](https://www.guru99.com/integration-testing.html)
-
 
 ### Melhores práticas:
 
