@@ -13,14 +13,17 @@ Antes de começar, vamos organizar nosso setup.
 * Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
 * [Add outras intrucoes caso necessario]
 
-`npm init -y``
+### Instalação
+
+`npm init -y`
 
 `npm install supertest jest --save-dev`
 
 no arquivo package.json alterar a linha 7 para 
-``````
+
+```json
 "test:jest": "jest --coverage"
-``````
+```
 
 ### Resumo
 O que veremos na aula de hoje?
@@ -273,10 +276,9 @@ https://www.browserstack.com/guide/test-case-reduction-and-techniques
 | Sessões de brainstorming são necessárias para finalizar um cenário de teste | É necessário conhecimento técnico detalhado do aplicativo de software |
 | O custo de manutenção é baixo, pois os recursos necessários são baixos | O custo de manutenção é alto, pois os recursos necessários são altos |
 
-O cenário de teste: Define o que deve ser testado. Caso de teste: É uma forma específica de como deve ser feito o teste validando ou não se a funcionalidade está correta.
+> O **cenário de teste**: Define o que deve ser testado. **Caso de teste**: É uma forma específica de como deve ser feito o teste validando ou não se a funcionalidade está correta.
 
-automatizado vs não automatizado
-
+https://www.lambdatest.com/blog/playwright-vs-selenium-vs-cypress/
 
 ***
 ### Exercícios 
@@ -297,6 +299,6 @@ automatizado vs não automatizado
 ---
 
 <p align="center">
-Desenvolvido com :purple_heart:  
+Desenvolvido com :purple_heart: por [Isabelle Galvão](https://github.com/isabellegalvao)
 </p>
 
