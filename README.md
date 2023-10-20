@@ -30,18 +30,12 @@ O que veremos na aula de hoje?
     - [Benefícios](#benefícios)
     - [Desafios](#desafios)
     - [Abordagens](#abordagens)
-      - [Abordagens](#abordagens)
+      - [Teste do Big Bang](#teste-do-big-bang)
+      - [Teste Incremental](#teste-incremental)
+        - [Teste de baixo para cima](#teste-de-integração-de-baixo-para-cima)
+        - [Teste de cima para baixo](#teste-de-cima-para-baixo-top-down)
 
 - [Conteúdo](#conteúdo)
-
-  - [Exemplo](#exemplo)
-    - [O que são e para que servem ](#o-que-são-e-para-que-servem)
-    - [Benefícios](#benefícios)
-    - [Abordagens](#abordagens)
-    - [Implementação](#implementação)
-  
-  - [Outro Exemplo](#outro-exemplo)
-    - [ETCETC](#etcetc)
 
   - [Exercícios](#exercícios)
   - [Material da aula](#material-da-aula)
@@ -153,17 +147,7 @@ Nessa abordagem, os módulos individuais são combinados a partir do nível supe
 - **Stubs** requerem conhecimento de programação e tempo para desenvolvimento;
 - Módulos em um nível inferior são testados inadequadamente.
 
-### Implementação
-
-Melhores práticas:
-
-- Identifique unidades críticas que devem ser priorizadas;
-- Utilize logs com abundância;
-- Mantenha seus testes unitários separados dos testes de integração;
-- Não teste lógica de negócio em testes de integração;
-- Se possível utilize CI/CD, para rodar seus testes antes do deploy.
-
-# **Como Fazer Testes de Integração?**
+### Como Fazer Testes de Integração?
 
 O procedimento de teste de integração, independentemente das estratégias de teste de software (discutidas anteriormente), é o seguinte:
 
@@ -173,7 +157,7 @@ O procedimento de teste de integração, independentemente das estratégias de t
 4. Rastrear e retestar os defeitos.
 5. Os passos 3 e 4 são repetidos até a conclusão bem-sucedida da integração.
 
-# **Breve Descrição dos Planos de Teste de Integração**
+#### Breve Descrição dos Planos de Teste de Integração
 
 Ele inclui os seguintes atributos:
 
@@ -186,7 +170,14 @@ Ele inclui os seguintes atributos:
 
 [Integration Testing: What is, Types with Example](https://www.guru99.com/integration-testing.html)
 
-https://github.com/public-apis/public-apis
+
+### Melhores práticas:
+
+- Identifique unidades críticas que devem ser priorizadas;
+- Utilize logs com abundância;
+- Mantenha seus testes unitários separados dos testes de integração;
+- Não teste lógica de negócio em testes de integração;
+- Se possível utilize CI/CD, para rodar seus testes antes do deploy.
 
 ## E2E
 
