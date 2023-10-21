@@ -23,10 +23,12 @@ outras = https://github.com/public-apis/public-apis
 - escreva um caso de teste end to end para o wikipedia
 - escreva um caso de teste end to end para o mercado livre
 - escreva um caso de teste end to end para o google flights
-- escreva um caso de teste end to end para o twitter
 
-Exercício 3: O Google Docs é um aplicativo baseado na Web para criar, editar e compartilhar documentos do Word, planilhas, slides e formulários. Todos os arquivos podem ser acessados on-line usando um navegador da Web com conexão à Internet. Os documentos criados podem ser compartilhados como uma página da Web ou documento pronto para impressão. O usuário pode definir restrições sobre quem pode visualizar e editar os documentos. Um único documento pode ser compartilhado de forma colaborativa e trabalhado por diversos indivíduos de diferentes localizações geográficas. Escreva ao menos 5 cenários de teste para o Google Docs.
-
+- escreva um caso de teste end to end para o git
+    - criar um repositório
+    - abrir uma issue
+    - deletar um repositório
+    - criar uma nova chave SSH
 
 ----
 
