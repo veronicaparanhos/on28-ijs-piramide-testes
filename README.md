@@ -102,6 +102,9 @@ Ocasionalmente, os testes de integração precisam usar esses serviços e compon
 
 O Teste do Big Bang é uma abordagem de teste de integração na qual todos os componentes ou módulos são integrados de uma só vez e testados como uma unidade. Esse conjunto combinado de componentes é considerado uma entidade durante o teste. Se todos os componentes na unidade não estiverem concluídos, o processo de integração não será executado.
 
+![Big Bang](/assets/01-big-bang-integration.png)
+
+
 **Vantagens:**
 
 - Conveniente para sistemas pequenos.
@@ -127,7 +130,7 @@ A abordagem Incremental é realizada por dois Métodos diferentes:
 
 O Teste de Integração de Baixo para Cima é uma estratégia na qual os módulos de nível inferior são testados primeiro. Esses módulos testados são então usados para facilitar o teste de módulos de nível superior. O processo continua até que todos os módulos no nível superior sejam testados. Uma vez que os módulos de nível inferior são testados e integrados, então o próximo nível de módulos é formado.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8de75e3a-c4d5-4c2c-b4b5-2a659fa1e379/53c6beba-8b88-4437-94ad-f59777cbdce9/Untitled.png)
+![Bottom-Up](/assets/01-bottom-up-integration-testing.jpg)
 
 **Vantagens:**
 
@@ -143,7 +146,7 @@ O Teste de Integração de Baixo para Cima é uma estratégia na qual os módulo
 
 ##### Teste de cima para baixo (Top-Down):
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8de75e3a-c4d5-4c2c-b4b5-2a659fa1e379/59e589c4-a9d1-4820-a5ef-72719cb2200e/Untitled.png)
+![Top-Down](/assets/01-top-down-integration-testing.jpg)
 
 Nessa abordagem, os módulos individuais são combinados a partir do nível superior da hierarquia, o teste começa combinando os módulos em níveis superiores, movendo-se para baixo, para os módulos de nível inferior. Às vezes, os módulos de nível inferior não estão disponíveis, para conseguir realizar o teste são criados *stubs*, um trecho de código ou programa que aceita as entradas do módulo superior e retorna os resultados esperados. A grande vantagem é poder testar logo no início as funções principais do software.
 
