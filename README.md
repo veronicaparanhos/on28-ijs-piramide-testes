@@ -37,6 +37,7 @@ O que veremos na aula de hoje?
     - [Teste Incremental](#teste-incremental)
       - [Teste de baixo para cima](#teste-de-integração-de-baixo-para-cima)
       - [Teste de cima para baixo](#teste-de-cima-para-baixo-top-down)
+      - [Teste híbrido](#teste-híbrido-ou-sanduíche)
   - [Como Fazer Testes de Integração?](#como-fazer-testes-de-integração)
   - [Melhores práticas](##melhores-práticas)
 - [Testes end-to-end](#e2e)
@@ -57,7 +58,7 @@ O que veremos na aula de hoje?
 
 ### **Conceito**
 
-Teste de integração tem objetivo de validar módulos/componentes quando integrados para verificar se eles funcionam conforme o esperado, ou seja, testar os módulos que estão funcionando bem individualmente não apresenta problemas quando integrados. A principal função ou objetivo deste teste é testar as interfaces entre as unidades/módulos.
+Teste de integração tem objetivo de validar módulos/componentes quando integrados para verificar se eles funcionam conforme o esperado, ou seja, testar os módulos que estão funcionando bem individualmente e não apresentam problemas quando integrados. A principal função ou objetivo deste teste é testar as interfaces entre as unidades/módulos.
 
 ### Motivação
 
@@ -115,7 +116,7 @@ O Teste do Big Bang é uma abordagem de teste de integração na qual todos os c
 - Dada a grande quantidade de interfaces que precisam ser testadas nessa abordagem, é fácil perder algumas interfaces que precisam ser testadas.
 - Como os testes de integração só podem começar depois que "todos" os módulos são projetados, a equipe de teste terá menos tempo para a execução na fase de teste.
 - Como todos os módulos são testados de uma vez, os módulos críticos de alto risco não são isolados e testados com prioridade. Módulos periféricos que lidam com interfaces de usuário também não são isolados e testados com prioridade.
-- 
+
 
 #### Teste Incremental
 
@@ -160,6 +161,23 @@ Nessa abordagem, os módulos individuais são combinados a partir do nível supe
 
 - **Stubs** requerem conhecimento de programação e tempo para desenvolvimento;
 - Módulos em um nível inferior são testados inadequadamente.
+
+##### Teste Híbrido ou Sanduíche: 
+
+![Sandwich](/assets/01-hybrid-integration.jpg)
+
+A abordagem de teste de integração híbrida ou sanduíche combina as metodologias Top-Down e Bottom-Up. Nesta abordagem o sistema é integrado dividindo-o em camadas: 
+- Lógica: camada formada pelos módulos que são mais frequentemente chamados. Aqui, utiliza-se a técnica Bottom-up; 
+- Operacional, que é formado pelos módulos principais, do ponto de vista operacional, sendo testado por meio da técnica Top-down.
+
+**Vantagens:**
+* Como seus pais, é uma abordagem incremental, e portanto, pode ser iniciada com poucos módulos;
+* Combina os benefícios das abordagens de cima para baixo e de baixo para cima
+* Adequado para grandes projetos
+
+**Desvantagens:**
+* Envolve alto custo de teste, pois são precisa-se de mais recursos, é possível que seja necessário utilizar tanto _stubs_ quanto _drivers_.
+
 
 ### Como Fazer Testes de Integração?
 
