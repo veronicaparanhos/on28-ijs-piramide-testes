@@ -7,19 +7,28 @@ Exercício 1: Baseado no código disponibilizado em [PokeAPI](https://pokeapi.co
 Exercício 2: Semelhante ao anterior, mas com a [SW API](https://swapi.dev/documentation)
 
 https://www.tvmaze.com/api **
+
 https://stapi.co/api-documentation || https://editor.swagger.io/?url=https://stapi.co/api/v1/rest/common/download/stapi.yaml
+
 https://openlibrary.org/developers/api
+
 https://www.dnd5eapi.co/docs/
+
+mais 3 endpoint de uma das apis acima
+
 
 outras = https://github.com/public-apis/public-apis
 
 ### Cenários e casos de testes:
-Exercício 3: O Google Docs é um aplicativo baseado na Web para criar, editar e compartilhar documentos do Word, planilhas, slides e formulários. Todos os arquivos podem ser acessados on-line usando um navegador da Web com conexão à Internet. Os documentos criados podem ser compartilhados como uma página da Web ou documento pronto para impressão. O usuário pode definir restrições sobre quem pode visualizar e editar os documentos. Um único documento pode ser compartilhado de forma colaborativa e trabalhado por diversos indivíduos de diferentes localizações geográficas. Escreva ao menos 5 cenários de teste para o Google Docs.
-
 - escreva um caso de teste end to end para o wikipedia
-- escreva um caso de teste end to end para o stack overflow
+- escreva um caso de teste end to end para o mercado livre
+- escreva um caso de teste end to end para o google flights
 
-
+- escreva um caso de teste end to end para o git
+    - criar um repositório
+    - abrir uma issue
+    - deletar um repositório
+    - criar uma nova chave SSH
 
 ----
 

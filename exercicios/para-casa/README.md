@@ -1,11 +1,18 @@
 # Exercício de Casa 🏠 
 
-## Nome do Exercicio
+## Testes de Integração e Cenários/casos de teste
 
-- Explicação do exercício: 
-Exercício 1 - API de localidades (IBGE): Teste pelo menos 4 endpoints da API de localidades do IBGE, cobrindo caminhos felizes e infelizes. Exercite sua autonomia no aprendizado e fique a vontade para usar diferentes matchers do jest e acessar diferentes respostas com o supertest.
+- Exercício 1 - API de localidades (IBGE): 
+Teste pelo menos 4 endpoints da [API de localidades do IBGE](https://servicodados.ibge.gov.br/api/docs/localidades), cobrindo caminhos felizes e infelizes. Exercite sua autonomia no aprendizado e fique a vontade para usar diferentes matchers do jest e acessar diferentes respostas com o supertest.
 
-Exercício 2 - Cenários e casos de teste: Escreva os cenários de teste para o habitica, considere pelo menos duas funcionalidades descritas no Step 1 da Wiki do Habitica. Os cenários de teste não precisam ser completos, mas devem contemplar as principais fluxos da funcionalidade.
+- Exercício 2 - Cenários e casos de teste:
+Escreva os cenários de teste para o [Pinterest](https://br.pinterest.com/), considere as funcionalidades descritas no abaixo. Os cenários de teste não precisam ser completos, mas devem contemplar as principais fluxos da funcionalidade.
+
+- Pesquisa por Termo
+- Criação de Board
+- Upload de Pin
+
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
