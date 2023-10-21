@@ -48,6 +48,7 @@ Neste exemplo:
 Lembre-se de que os stubs são úteis para isolar o código durante os testes, especialmente quando você deseja evitar chamadas a funções ou serviços reais. Eles ajudam a garantir que os testes se concentrem apenas na unidade de código que está sendo testada.
 
 -----
+
 Em testes de software, um **driver** é um componente ou um conjunto de scripts usados para simular o comportamento de um componente ou módulo que ainda não foi desenvolvido. Geralmente, um driver é usado para testar um componente que depende de outro componente que ainda não foi implementado.
 
 Vou fornecer um exemplo básico de como criar um driver usando Jest. Neste exemplo, vamos criar um teste para uma função `calculateTotal` que depende de uma função `getPricesFromDatabase`. Como a função `getPricesFromDatabase` ainda não foi implementada, usaremos um driver para simular seu comportamento.
@@ -126,11 +127,27 @@ Neste exemplo:
 Este é um exemplo básico de como usar um driver para testar um componente que depende de um componente ainda não implementado. Note que esta é uma abordagem temporária e não deve substituir testes completos assim que o componente real estiver disponível.
 
 
-Em alguns casos, há a necessidade de simular alguma dependência em nosso código, testar a lógica em torno das funções usando **spies** ou **stubs** em determinados lugares. É aqui que alguns desses pacotes utilitários se tornam úteis.
+---
+
+**Stubs** e **drivers** são conceitos importantes em testes de software, e eles são usados para diferentes finalidades:
+
+1. **Stubs:**
+   - **Definição:** Stubs são objetos ou funções usados para substituir partes do sistema que ainda não estão implementadas ou para isolar a unidade de código que está sendo testada.
+   - **Finalidade:** Stubs são usados para simular o comportamento de componentes ou serviços que o código que está sendo testado depende. Eles ajudam a isolar a unidade de código em teste, garantindo que o código não dependa de componentes reais externos, como serviços da web ou bancos de dados. Stubs são especialmente úteis quando você deseja evitar chamadas reais a serviços externos durante os testes para tornar os testes rápidos e independentes de ambiente externo.
+
+2. **Drivers:**
+   - **Definição:** Drivers são componentes ou conjuntos de scripts usados para simular o comportamento de componentes ou módulos que ainda não foram desenvolvidos.
+   - **Finalidade:** Drivers são usados para testar um componente que depende de outro componente que ainda não está disponível ou que está incompleto. Eles são criados para fornecer entradas simuladas para a unidade de código em teste. Em vez de esperar por um componente real, o driver fornece dados simulados ou comportamentos simulados para permitir que o componente em teste seja testado de forma independente.
+
+Em resumo, **stubs** são usados para isolar o código sendo testado, enquanto **drivers** são usados para fornecer entradas simuladas ou comportamentos simulados para testar o código que depende de componentes ou serviços externos que ainda não estão disponíveis ou implementados. Ambos são técnicas importantes para garantir que o código seja testado de forma eficaz e independente.
+
+---
 
 [O SinonJS](http://sinonjs.org/) é uma ótima biblioteca que suporta **spies**, **stubs** e **mocks** para testes. Ela também oferece outros recursos úteis para testes, como manipulação de tempo, área de testes isolada, ampliação de assertivas, além de servidores e requisições falsas.
 
 Em alguns casos, há a necessidade de simular alguma dependência em nosso código. As referências aos serviços que gostaríamos de simular são utilizadas por outras partes do sistema.
+
+---
 
 **Para que devemos usar Mocks?**
 

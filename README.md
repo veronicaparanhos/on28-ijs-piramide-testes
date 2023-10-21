@@ -178,6 +178,11 @@ A abordagem de teste de integração híbrida ou sanduíche combina as metodolog
 **Desvantagens:**
 * Envolve alto custo de teste, pois são precisa-se de mais recursos, é possível que seja necessário utilizar tanto _stubs_ quanto _drivers_.
 
+**stubs** são usados para isolar o código sendo testado, enquanto **drivers** são usados para fornecer entradas simuladas ou comportamentos simulados para testar o código que depende de componentes ou serviços externos que ainda não estão disponíveis ou implementados. Ambos são técnicas importantes para garantir que o código seja testado de forma eficaz e independente.
+
+
+> ℹ️ Leia sobre [Stubs e Drives](/material/stubsVsDrivers.md)
+
 
 ### Como Fazer Testes de Integração?
 
