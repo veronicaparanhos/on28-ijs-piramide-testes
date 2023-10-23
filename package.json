@@ -1,0 +1,19 @@
+{
+  "name": "on28-ijs-piramide-testes",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <img src=\"assets/reprograma-fundos-claros.png\" alt=\"logo reprograma\" width=\"500\"> </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test:jest": "jest --covarage",
+    "test:cypress": "npx cypress run",
+    "cypress:open": "npx cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.3.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}
