@@ -1,0 +1,14 @@
+{
+  "name": "select2-recipe",
+  "version": "1.0.0",
+  "description": "Testing Select2 widgets",
+  "scripts": {
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "test:ci": "npm run cypress:run",
+    "test:ci:record": "npm run cypress:run -- --record"
+  },
+  "devDependencies": {
+    "cypress": "^13.3.2"
+  }
+}

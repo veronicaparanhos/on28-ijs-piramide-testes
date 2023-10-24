@@ -1,0 +1,31 @@
+{
+  "name": "logging-in__basic-auth",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "cypress:run:chrome": "npx cypress run --browser chrome",
+    "cypress:run:firefox": "npx cypress run --browser firefox",
+    "cypress:run:record": "npx cypress run --record",
+    "dev": "npx start-test 7065 cypress:open",
+    "start": "node server.js --port 7065",
+    "test:ci": "npx start-test 7065 cypress:run",
+    "test:ci:chrome": "npx start-test 7065 cypress:run:chrome",
+    "test:ci:firefox": "npx start-test 7065 cypress:run:firefox",
+    "test:ci:record": "npx start-test 7065 cypress:run:record"
+  },
+  "devDependencies": {
+    "cypress": "^13.3.2",
+    "start-server-and-test": "^2.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
+    "minimist": "^1.2.8",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
+}

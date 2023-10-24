@@ -68,3 +68,7 @@ Isso abrirá a interface do Cypress, onde você pode selecionar o arquivo `wikip
 
 https://docs.cypress.io/api/table-of-contents
 https://www.lambdatest.com/blog/playwright-vs-selenium-vs-cypress/
+
+Os testes de componente são usados para testar componentes individuais do software de forma isolada. Isso permite que os desenvolvedores testem as funcionalidades de um componente específico sem depender de outros componentes ou módulos do software. Eles costumam ser mais rápidos de se executar e mais fáceis de depurar.
+
+Já os testes End-to-End(E2E) são usados para testar a integração de várias partes do software em um fluxo completo de uso. Eles simulam a interação do usuário com o software, verificando se as várias partes do sistema funcionam em conjunto de maneira adequada. Os testes E2E são mais lentos e difíceis de depurar do que os testes de componente, mas fornecem uma visão geral do funcionamento do software como um todo.
